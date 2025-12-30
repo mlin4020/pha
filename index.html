@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程序员健康管理助手</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>程序员健康管理助手</h1>
+        </header>
+        
+        <main>
+            <!-- 状态显示 -->
+            <div class="status-section">
+                <div id="status" class="status">准备开始工作</div>
+            </div>
+            
+            <!-- 倒计时显示 -->
+            <div class="timer-section">
+                <div id="timer" class="timer">25:00</div>
+            </div>
+            
+            <!-- 时长设置 -->
+            <div class="settings-section">
+                <div class="setting-group">
+                    <label for="work-duration">工作时长 (分钟):</label>
+                    <input type="number" id="work-duration" min="1" max="120" value="25">
+                </div>
+                <div class="setting-group">
+                    <label for="break-duration">休息时长 (分钟):</label>
+                    <input type="number" id="break-duration" min="1" max="30" value="5">
+                </div>
+            </div>
+            
+            <!-- 控制按钮 -->
+            <div class="controls-section">
+                <button id="start-btn" class="btn btn-primary">开始工作</button>
+                <button id="pause-btn" class="btn btn-secondary">暂停</button>
+                <button id="immediate-break-btn" class="btn btn-secondary">立即休息</button>
+                <button id="reset-btn" class="btn btn-secondary">重置计时器</button>
+                <button id="stats-btn" class="btn btn-secondary">查看统计</button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="renderer.js"></script>
+    
+    <!-- 添加CSS热更新支持 -->
+    <script>
+        // 监听CSS文件变化，自动重新加载
+        const styleLinks = document.querySelectorAll('link[rel="stylesheet"]');
+        styleLinks.forEach(link => {
+            const originalHref = link.href;
+            // 添加一个随机参数，确保浏览器重新加载CSS文件
+            setInterval(() => {
+                const newHref = originalHref + '?v=' + Date.now();
+                fetch(newHref, {
+                    method: 'HEAD'
+                }).then(response => {
+                    // 如果文件有变化，重新加载
+                    if (response.headers.get('Last-Modified') !== link.dataset.lastModified) {
+                        link.dataset.lastModified = response.headers.get('Last-Modified');
+                        link.href = newHref;
+                        console.log('CSS文件已重新加载:', originalHref);
+                    }
+                }).catch(error => {
+                    console.error('检查CSS文件变化时出错:', error);
+                });
+            }, 1000); // 每秒检查一次
+        });
+    </script>
+</body>
+</html>

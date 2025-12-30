@@ -1,0 +1,70 @@
+{
+  "name": "programmer-health-assistant",
+  "version": "1.0.0",
+  "description": "A desktop application to help programmers take regular breaks",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "electron",
+    "health",
+    "productivity",
+    "programmer"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-reload": "^2.0.0-alpha.1"
+  },
+  "build": {
+    "appId": "com.healthassistant.app",
+    "productName": "Programmer Health Assistant",
+    "directories": {
+      "output": "dist-new3"
+    },
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "dataManager.js",
+      "stats.js",
+      "index.html",
+      "break.html",
+      "stats.html",
+      "styles/**/*",
+      "assets/**/*",
+      "src/**/*"
+    ],
+    "compression": "maximum",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icons/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icons/icon.png"
+    }
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1"
+  }
+}

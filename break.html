@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>该休息了！</title>
+    <link rel="stylesheet" href="styles/break.css">
+</head>
+<body>
+    <div class="break-container">
+        <div class="break-content">
+            <h1 class="break-title">该休息了！</h1>
+            
+            <div class="break-timer-section">
+                <div id="break-timer" class="break-timer">05:00</div>
+            </div>
+            
+            <div class="health-tips">
+                <h2>健康小贴士</h2>
+                <ul>
+                    <li>闭上眼睛，深呼吸5次</li>
+                    <li>转动眼球，左看右看各10次</li>
+                    <li>伸展手臂，向上拉伸</li>
+                    <li>活动颈部，缓慢转动</li>
+                    <li>喝一杯水，补充水分</li>
+                </ul>
+            </div>
+            
+            <div class="break-actions">
+                <button id="acknowledge-break-btn" class="btn btn-primary">知道了</button>
+                <button id="skip-break-btn" class="btn btn-skip">跳过休息</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="renderer.js"></script>
+    
+    <!-- 添加CSS热更新支持 -->
+    <script>
+        // 监听CSS文件变化，自动重新加载
+        const styleLinks = document.querySelectorAll('link[rel="stylesheet"]');
+        styleLinks.forEach(link => {
+            const originalHref = link.href;
+            // 添加一个随机参数，确保浏览器重新加载CSS文件
+            setInterval(() => {
+                const newHref = originalHref + '?v=' + Date.now();
+                fetch(newHref, {
+                    method: 'HEAD'
+                }).then(response => {
+                    // 如果文件有变化，重新加载
+                    if (response.headers.get('Last-Modified') !== link.dataset.lastModified) {
+                        link.dataset.lastModified = response.headers.get('Last-Modified');
+                        link.href = newHref;
+                        console.log('CSS文件已重新加载:', originalHref);
+                    }
+                }).catch(error => {
+                    console.error('检查CSS文件变化时出错:', error);
+                });
+            }, 1000); // 每秒检查一次
+        });
+    </script>
+</body>
+</html>
