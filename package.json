@@ -16,7 +16,7 @@
     "productivity",
     "programmer"
   ],
-  "author": "Your Name",
+  "author": "mlin",
   "license": "MIT",
   "devDependencies": {
     "chokidar": "^4.0.3",
@@ -28,7 +28,7 @@
     "appId": "com.healthassistant.app",
     "productName": "Programmer Health Assistant",
     "directories": {
-      "output": "dist-new3"
+      "output": "dist"
     },
     "asar": true,
     "files": [
