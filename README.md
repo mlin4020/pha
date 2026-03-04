@@ -1,6 +1,9 @@
 # 程序员健康管理助手
 
 一个AI编写的基于 Electron 开发的桌面应用程序，帮助程序员定期休息，保持健康的工作习惯。
+## 截图
+<img width="974" height="1290" alt="image" src="https://github.com/user-attachments/assets/8e493cbd-f754-4497-b617-6ac7bebbedbc" />
+<img width="3072" height="1920" alt="image" src="https://github.com/user-attachments/assets/cc6ec294-000f-4a23-99fc-9d132d0ff88e" />
 
 ## 功能特性
 
