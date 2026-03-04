@@ -4,7 +4,7 @@
 ## 截图
 <img width="974" height="1290" alt="image" src="https://github.com/user-attachments/assets/8e493cbd-f754-4497-b617-6ac7bebbedbc" />
 <img width="3072" height="1920" alt="image" src="https://github.com/user-attachments/assets/cc6ec294-000f-4a23-99fc-9d132d0ff88e" />
-![Uploading image.png…]()
+<img width="1984" height="1502" alt="image" src="https://github.com/user-attachments/assets/e96f038c-bcc5-4276-ae18-d38f71100421" />
 
 ## 功能特性
 
